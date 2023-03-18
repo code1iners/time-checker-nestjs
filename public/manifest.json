@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Simple Time Checker",
-  "short_name": "Time Checker",
+  "name": "Simple Time Stamper",
+  "short_name": "Time Stamper",
   "description": "Simple time checking app.",
   "icons": [
     {
