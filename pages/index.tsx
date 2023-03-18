@@ -27,8 +27,16 @@ export default function Home() {
     const foundItem = items.find((item) => item.id === id);
     if (!foundItem) return;
 
-    setItems((curr) => [...curr]);
     foundItem.value = Date.now();
+    setItems((curr) => [...curr]);
+  };
+
+  const onTimeRemoveClick = (id: string) => {
+    const foundItem = items.find((item) => item.id === id);
+    if (!foundItem) return;
+
+    foundItem.value = 0;
+    setItems((curr) => [...curr]);
   };
 
   const onDeleteClick = (id: string) => {
@@ -77,15 +85,54 @@ export default function Home() {
                 {label}
               </span>
 
-              <div className="flex p-2">
+              <div className="flex p-2 text-md tracking-wider">
                 {value ? (
-                  <span className="text-sm">{parsedValue(value)}</span>
+                  <button
+                    className="flex items-center gap-3"
+                    onClick={() => onTimeRemoveClick(id)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6 text-gray-400"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+
+                    <span>{parsedValue(value)}</span>
+                  </button>
                 ) : (
                   <button
-                    className="tracking-wider text-sm"
+                    className="tracking-widest flex items-center gap-2"
                     onClick={() => onGenerateTimeClick(id)}
                   >
-                    시간 생성
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6 text-orange-600"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
+                      />
+                    </svg>
+                    시간 찍기
                   </button>
                 )}
               </div>

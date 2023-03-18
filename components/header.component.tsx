@@ -26,17 +26,20 @@ export default function HeaderComponent(props: HeaderComponentProps) {
   };
   return (
     <section className="flex flex-col">
-      <div className="flex justify-between items-center gap-5">
+      <form
+        onSubmit={handleSubmit(onAddClick)}
+        className="flex justify-between items-center gap-5"
+      >
         <input
           {...register("inputText", { required: "제목은 필수입니다." })}
-          className="flex-1 border-b p-2"
+          className="flex-1 border-b p-2 outline-indigo-500 tracking-widest text-slate-600"
           type="text"
           placeholder="출근한 시간"
           autoCapitalize="off"
           autoComplete="off"
         />
         <button
-          className="border border-slate-500 text-slate-500 rounded-md"
+          className="border border-slate-500 hover:border-indigo-500 text-slate-500 hover:text-indigo-500 transition hover:scale-110 rounded-md"
           onClick={handleSubmit(onAddClick)}
         >
           <svg
@@ -54,7 +57,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
             />
           </svg>
         </button>
-      </div>
+      </form>
       <p className="mt-2 text-red-400 text-sm tracking-widest">
         {errors.inputText?.message || ""}
       </p>
