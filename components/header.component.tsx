@@ -27,7 +27,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
     <section className="flex flex-col">
       <form
         onSubmit={handleSubmit(onAddClick)}
-        className="flex items-center gap-5"
+        className="relative flex items-center gap-5"
       >
         <input
           {...register("labelName", { required: "제목은 필수입니다." })}
@@ -38,7 +38,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
           autoComplete="off"
         />
         <button
-          className="border border-slate-500 hover:border-indigo-500 text-slate-500 hover:text-indigo-500 transition hover:scale-110 rounded-md"
+          className="absolute right-2 bg-white border border-slate-500 hover:border-indigo-500 text-slate-500 hover:text-indigo-500 transition hover:scale-110 rounded-md"
           onClick={handleSubmit(onAddClick)}
         >
           <svg
