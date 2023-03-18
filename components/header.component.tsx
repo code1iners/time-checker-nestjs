@@ -32,6 +32,8 @@ export default function HeaderComponent(props: HeaderComponentProps) {
           className="flex-1 border-b p-2"
           type="text"
           placeholder="출근한 시간"
+          autoCapitalize="off"
+          autoComplete="off"
         />
         <button
           className="border border-slate-500 text-slate-500 rounded-md"

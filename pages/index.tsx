@@ -67,7 +67,7 @@ export default function Home() {
       </Head>
       <main className="h-screen p-10 flex flex-col gap-5">
         <HeaderComponent onClick={onAddClick} />
-        <ul className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <ul className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 overflow-y-scroll">
           {items.map(({ id, label, value }) => (
             <li
               className="flex flex-col gap-2 border rounded-md shadow-md p-5 items-center"
