@@ -81,7 +81,7 @@ export default function Home() {
               className="flex flex-col gap-2 border rounded-md shadow-md p-5 items-center"
               key={id}
             >
-              <span className="text-gray-500 tracking-widest font-light border-b">
+              <span className="text-gray-500 tracking-widest font-light border-b text-center">
                 {label}
               </span>
 

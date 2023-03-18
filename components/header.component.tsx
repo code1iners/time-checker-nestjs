@@ -34,6 +34,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
           className="flex-1 border-b p-2 outline-indigo-500 tracking-widest text-slate-600"
           type="text"
           placeholder="출근한 시간"
+          maxLength={20}
           autoCapitalize="off"
           autoComplete="off"
         />
