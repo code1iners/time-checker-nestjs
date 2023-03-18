@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Time Checker</title>
+        <title>Time Stamper</title>
       </Head>
       <main className="h-screen p-10 flex flex-col gap-5">
         <HeaderComponent onClick={onAddClick} />
