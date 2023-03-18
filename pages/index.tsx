@@ -13,14 +13,14 @@ interface Item {
 export default function Home() {
   const [items, setItems] = useState<Item[]>([]);
 
-  const onAddClick = (inputValue: string) => {
-    const isExists = items.some(({ label }) => label === inputValue);
+  const onAddClick = (labelName: string) => {
+    const isExists = items.some(({ label }) => label === labelName);
     if (isExists) {
       alert("이미 존재하는 항목입니다.");
       return;
     }
 
-    setItems((curr) => [...curr, { id: v4(), label: inputValue, value: 0 }]);
+    setItems((curr) => [...curr, { id: v4(), label: labelName, value: 0 }]);
   };
 
   const onGenerateTimeClick = (id: string) => {

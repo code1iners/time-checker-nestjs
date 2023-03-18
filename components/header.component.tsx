@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface HeaderComponentProps {
-  onClick: (inputText: string) => void;
+  onClick: (labelName: string) => void;
 }
 
 interface Form {
-  inputText: string;
+  labelName: string;
 }
 
 export default function HeaderComponent(props: HeaderComponentProps) {
@@ -19,10 +18,10 @@ export default function HeaderComponent(props: HeaderComponentProps) {
 
   const onAddClick = (form: Form) => {
     // Execute callback.
-    props.onClick(form.inputText);
+    props.onClick(form.labelName);
 
     // Clear input text.
-    setValue("inputText", "");
+    setValue("labelName", "");
   };
   return (
     <section className="flex flex-col">
@@ -31,7 +30,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
         className="flex justify-between items-center gap-5"
       >
         <input
-          {...register("inputText", { required: "제목은 필수입니다." })}
+          {...register("labelName", { required: "제목은 필수입니다." })}
           className="flex-1 border-b p-2 outline-indigo-500 tracking-widest text-slate-600"
           type="text"
           placeholder="출근한 시간"
@@ -59,7 +58,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
         </button>
       </form>
       <p className="mt-2 text-red-400 text-sm tracking-widest">
-        {errors.inputText?.message || ""}
+        {errors.labelName?.message || ""}
       </p>
     </section>
   );
