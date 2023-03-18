@@ -27,7 +27,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
     <section className="flex flex-col">
       <form
         onSubmit={handleSubmit(onAddClick)}
-        className="flex justify-between items-center gap-5"
+        className="flex items-center gap-5"
       >
         <input
           {...register("labelName", { required: "제목은 필수입니다." })}
