@@ -13,7 +13,7 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
-  if (isMounted) return <Loading />;
+  if (!isMounted) return <Loading />;
 
   return (
     <>
