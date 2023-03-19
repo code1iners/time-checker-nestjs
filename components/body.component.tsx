@@ -6,6 +6,7 @@ import {
 } from "react-beautiful-dnd";
 import StampItem from "@/components/stamp-item";
 import { useStampStore } from "@/stores/stamp.store";
+import EmptyBox from "./emtpy-box.component";
 
 export default function BodyComponent() {
   const { stamps, moveStamp } = useStampStore();
@@ -14,6 +15,8 @@ export default function BodyComponent() {
     const { source, destination } = result;
     moveStamp(source.index, destination?.index);
   };
+
+  if (!stamps.length) return <EmptyBox />;
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
