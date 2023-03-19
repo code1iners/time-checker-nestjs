@@ -97,7 +97,7 @@ export default function Home() {
             <Droppable droppableId="droppable">
               {(droppableProvided, snapshot) => (
                 <ul
-                  className="w-full h-full flex flex-col gap-5 overflow-y-scroll mt-5"
+                  className="w-full h-full flex flex-col gap-5 overflow-y-scroll"
                   ref={droppableProvided.innerRef}
                 >
                   {items.map(({ id, label, value }, index) => (
