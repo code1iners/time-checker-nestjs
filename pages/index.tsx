@@ -11,6 +11,7 @@ import {
 } from "react-beautiful-dnd";
 import HeaderComponent from "@/components/header.component";
 import StampItem from "@/components/stamp-item";
+import ResponsiveHorizontal from "@/components/responsive-horizontal.component";
 
 interface Item {
   id: string;
@@ -84,38 +85,41 @@ export default function Home() {
       <Head>
         <title>Time Stamper</title>
       </Head>
-      <main className="h-screen p-10 flex flex-col gap-5">
-        <HeaderComponent onClick={onAddClick} />
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(droppableProvided, snapshot) => (
-              <ul
-                className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 overflow-y-scroll"
-                ref={droppableProvided.innerRef}
-              >
-                {items.map(({ id, label, value }, index) => (
-                  <Draggable key={id} draggableId={id} index={index}>
-                    {(draggableProvided, snapshot) => (
-                      <StampItem
-                        reference={draggableProvided.innerRef}
-                        draggableProps={draggableProvided.draggableProps}
-                        dragHandleProps={draggableProvided.dragHandleProps}
-                        key={id}
-                        id={id}
-                        label={label}
-                        value={value}
-                        onItemDeleteClick={onItemDeleteClick}
-                        onTimeCreateClick={onTimeCreateClick}
-                        onTimeRemoveClick={onTimeRemoveClick}
-                      />
-                    )}
-                  </Draggable>
-                ))}
-                {droppableProvided.placeholder}
-              </ul>
-            )}
-          </Droppable>
-        </DragDropContext>
+      <main className="h-screen p-10 flex flex-col items-center gap-5">
+        <ResponsiveHorizontal>
+          <HeaderComponent onClick={onAddClick} />
+
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="droppable">
+              {(droppableProvided, snapshot) => (
+                <ul
+                  className="w-full flex flex-col gap-5 overflow-y-scroll"
+                  ref={droppableProvided.innerRef}
+                >
+                  {items.map(({ id, label, value }, index) => (
+                    <Draggable key={id} draggableId={id} index={index}>
+                      {(draggableProvided, snapshot) => (
+                        <StampItem
+                          reference={draggableProvided.innerRef}
+                          draggableProps={draggableProvided.draggableProps}
+                          dragHandleProps={draggableProvided.dragHandleProps}
+                          key={id}
+                          id={id}
+                          label={label}
+                          value={value}
+                          onItemDeleteClick={onItemDeleteClick}
+                          onTimeCreateClick={onTimeCreateClick}
+                          onTimeRemoveClick={onTimeRemoveClick}
+                        />
+                      )}
+                    </Draggable>
+                  ))}
+                  {droppableProvided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </ResponsiveHorizontal>
       </main>
     </>
   );

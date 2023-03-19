@@ -40,7 +40,7 @@ export default function StampItem({
         {label}
       </span>
 
-      <div className="flex p-2 text-md tracking-wider">
+      <div className="flex p-2 tracking-wider">
         {value ? (
           <button
             className="flex items-center gap-3"
