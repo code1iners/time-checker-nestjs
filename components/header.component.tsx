@@ -1,14 +1,14 @@
+import { v4 } from "uuid";
+import { useStampStore } from "@/stores/stamp.store";
 import { useForm } from "react-hook-form";
-
-interface HeaderComponentProps {
-  onClick: (labelName: string) => void;
-}
 
 interface Form {
   labelName: string;
 }
 
-export default function HeaderComponent(props: HeaderComponentProps) {
+export default function HeaderComponent() {
+  const { stamps, createStamp } = useStampStore();
+
   const {
     register,
     handleSubmit,
@@ -17,8 +17,15 @@ export default function HeaderComponent(props: HeaderComponentProps) {
   } = useForm<Form>();
 
   const onAddClick = (form: Form) => {
+    const { labelName } = form;
     // Execute callback.
-    props.onClick(form.labelName);
+    const isExists = stamps.some(({ label }) => label === labelName);
+    if (isExists) {
+      alert("이미 존재하는 항목입니다.");
+      return;
+    }
+
+    createStamp({ id: v4(), label: labelName, value: 0 });
 
     // Clear input text.
     setValue("labelName", "");

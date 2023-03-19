@@ -1,17 +1,14 @@
-import { withDateFormat } from "@/utilities";
 import {
   DraggableProvidedDraggableProps,
   DraggableProvidedDragHandleProps,
 } from "react-beautiful-dnd";
+import { useStampStore } from "@/stores/stamp.store";
+import { withDateFormat } from "@/utilities";
 
 interface StampItemProps {
   id: string;
   label: string;
   value: number;
-
-  onTimeRemoveClick: (id: string) => void;
-  onTimeCreateClick: (id: string) => void;
-  onItemDeleteClick: (id: string) => void;
 
   reference?: (element: HTMLElement | null) => void;
   draggableProps?: DraggableProvidedDraggableProps;
@@ -22,13 +19,18 @@ export default function StampItem({
   id,
   label,
   value,
-  onTimeRemoveClick,
-  onTimeCreateClick,
-  onItemDeleteClick,
   reference,
   dragHandleProps,
   draggableProps,
 }: StampItemProps) {
+  const { updateStamp, deleteStamp } = useStampStore();
+
+  const onItemDeleteClick = (id: string) => {
+    const isConfirmed = confirm("정말로 삭제하시겠습니까?");
+    if (!isConfirmed) return;
+    deleteStamp(id);
+  };
+
   return (
     <li
       ref={reference}
@@ -44,7 +46,7 @@ export default function StampItem({
         {value ? (
           <button
             className="flex items-center gap-3"
-            onClick={() => onTimeRemoveClick(id)}
+            onClick={() => updateStamp(id, false)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +68,7 @@ export default function StampItem({
         ) : (
           <button
             className="tracking-widest flex items-center gap-2"
-            onClick={() => onTimeCreateClick(id)}
+            onClick={() => updateStamp(id, true)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
