@@ -1,13 +1,13 @@
 export default function EmptyBox() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-2 py-10">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-30 h-30 text-indigo-200"
+        className="w-30 h-30 animate-bounce text-indigo-200"
       >
         <path
           strokeLinecap="round"
@@ -16,7 +16,7 @@ export default function EmptyBox() {
         />
       </svg>
 
-      <div className="flex flex-col items-center gap-2 tracking-wider">
+      <div className="flex flex-col items-center gap-2 tracking-wider animate-pulse">
         <h1 className="text-2xl font-semibold text-slate-600">
           항목이 없습니다.
         </h1>
