@@ -41,7 +41,7 @@ export default function StampItem({
     >
       <motion.div
         className="flex flex-col gap-2 border rounded-md shadow-md p-5 items-center"
-        whileTap={{ scale: 0.95 }}
+        whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.05 }}
       >
         <span className="text-gray-500 tracking-widest font-light border-b text-center">
