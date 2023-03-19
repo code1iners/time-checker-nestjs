@@ -18,10 +18,10 @@ export default function EmptyBox() {
 
       <div className="flex flex-col items-center gap-2 tracking-wider">
         <h1 className="text-2xl font-semibold text-slate-600">
-          There are no items
+          항목이 없습니다.
         </h1>
         <small className="text-sm text-gray-400">
-          Adding your time stamp to Start
+          타임 스탬프를 추가해볼까요?
         </small>
       </div>
     </div>
