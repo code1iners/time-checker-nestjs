@@ -24,7 +24,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
     setValue("labelName", "");
   };
   return (
-    <section className="flex flex-col">
+    <section className="w-full flex flex-col">
       <form
         onSubmit={handleSubmit(onAddClick)}
         className="relative flex items-center gap-5"
@@ -48,7 +48,7 @@ export default function HeaderComponent(props: HeaderComponentProps) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-7 h-7"
+            className="w-5 h-5"
           >
             <path
               strokeLinecap="round"

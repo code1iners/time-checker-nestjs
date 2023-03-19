@@ -84,8 +84,12 @@ export default function Home() {
     <>
       <Head>
         <title>Time Stamper</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
       </Head>
-      <main className="h-screen p-10 flex flex-col items-center gap-5">
+      <main className="h-screen">
         <ResponsiveHorizontal>
           <HeaderComponent onClick={onAddClick} />
 
@@ -93,7 +97,7 @@ export default function Home() {
             <Droppable droppableId="droppable">
               {(droppableProvided, snapshot) => (
                 <ul
-                  className="w-full flex flex-col gap-5 overflow-y-scroll"
+                  className="w-full h-full flex flex-col gap-5 overflow-y-scroll mt-5"
                   ref={droppableProvided.innerRef}
                 >
                   {items.map(({ id, label, value }, index) => (
