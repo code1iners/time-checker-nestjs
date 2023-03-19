@@ -44,6 +44,7 @@ export default function HeaderComponent() {
           maxLength={20}
           autoCapitalize="off"
           autoComplete="off"
+          enterKeyHint="done"
         />
         <button
           className="absolute right-2 bg-white border border-slate-500 hover:border-indigo-500 text-slate-500 hover:text-indigo-500 transition hover:scale-110 rounded-md"
