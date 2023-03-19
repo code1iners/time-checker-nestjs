@@ -31,7 +31,7 @@ export default function HeaderComponent() {
     setValue("labelName", "");
   };
   return (
-    <section className="w-full flex flex-col">
+    <section className="w-full flex flex-col px-3">
       <form
         onSubmit={handleSubmit(onAddClick)}
         className="relative flex items-center gap-5"
