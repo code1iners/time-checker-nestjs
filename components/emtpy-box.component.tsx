@@ -1,6 +1,6 @@
 export default function EmptyBox() {
   return (
-    <div className="flex flex-col gap-2 py-10">
+    <div className="flex flex-col gap-2 pt-20">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
