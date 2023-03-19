@@ -23,7 +23,7 @@ export default function BodyComponent() {
       <Droppable droppableId="droppable">
         {(droppableProvided, snapshot) => (
           <ul
-            className="w-full h-full flex flex-col gap-5 overflow-y-scroll"
+            className="w-full h-full flex flex-col overflow-y-scroll"
             ref={droppableProvided.innerRef}
           >
             {stamps.map(({ id, label, value }, index) => (
