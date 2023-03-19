@@ -5,6 +5,7 @@ import { resetServerContext } from "react-beautiful-dnd";
 import ResponsiveHorizontal from "@/components/responsive-horizontal.component";
 import HeaderComponent from "@/components/header.component";
 import BodyComponent from "@/components/body.component";
+import Loading from "@/components/loading.component";
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -12,7 +13,7 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) return <div>Loading...</div>;
+  if (isMounted) return <Loading />;
 
   return (
     <>
