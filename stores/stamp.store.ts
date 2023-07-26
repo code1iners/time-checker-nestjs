@@ -9,6 +9,7 @@ interface StampState {
   setStamps: (newStamps: StampObject[]) => void;
   moveStamp: (sourceIndex: number, destinationIndex?: number) => void;
   updateStamp: (id: string, isGenerate: boolean) => void;
+  toggleStampAutoRefreshById: (id: string) => void;
 }
 
 export const useStampStore = create<StampState>()(
@@ -38,6 +39,14 @@ export const useStampStore = create<StampState>()(
             const foundItem = state.stamps.find((item) => item.id === id);
             if (foundItem) {
               foundItem.value = isGenerate ? Date.now() : 0;
+            }
+            return { stamps: state.stamps };
+          }),
+        toggleStampAutoRefreshById: (id) =>
+          set((state) => {
+            const foundItem = state.stamps.find((item) => item.id === id);
+            if (foundItem) {
+              foundItem.isAutoUpdateMode = !foundItem.isAutoUpdateMode;
             }
             return { stamps: state.stamps };
           }),

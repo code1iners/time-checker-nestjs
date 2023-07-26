@@ -25,7 +25,12 @@ export default function HeaderComponent() {
       return;
     }
 
-    createStamp({ id: v4(), label: labelName, value: 0 });
+    createStamp({
+      id: v4(),
+      label: labelName,
+      value: 0,
+      isAutoUpdateMode: false,
+    });
 
     // Clear input text.
     setValue("labelName", "");

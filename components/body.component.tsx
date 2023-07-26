@@ -23,10 +23,10 @@ export default function BodyComponent() {
       <Droppable droppableId="droppable">
         {(droppableProvided, snapshot) => (
           <ul
-            className="w-full h-full flex flex-col overflow-y-scroll"
+            className="w-full h-full flex flex-col overflow-y-auto"
             ref={droppableProvided.innerRef}
           >
-            {stamps.map(({ id, label, value }, index) => (
+            {stamps.map(({ id, label, value, isAutoUpdateMode }, index) => (
               <Draggable key={id} draggableId={id} index={index}>
                 {(draggableProvided, snapshot) => (
                   <StampItem
@@ -37,6 +37,7 @@ export default function BodyComponent() {
                     id={id}
                     label={label}
                     value={value}
+                    isAutoUpdateMode={isAutoUpdateMode}
                   />
                 )}
               </Draggable>
