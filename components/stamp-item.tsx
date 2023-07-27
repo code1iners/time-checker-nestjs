@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { DateTime } from "luxon";
 import {
   DraggableProvidedDraggableProps,
   DraggableProvidedDragHandleProps,
@@ -36,11 +37,21 @@ export default function StampItem({
     deleteStamp(id);
   };
 
+  /**
+   * Update item value with automation.
+   */
   useEffect(() => {
     if (isAutoUpdateMode) {
-      updateStamp(id, true);
+      const now = DateTime.now();
+      // Obtains today start time as milliseconds.
+      const toDayAsMilliSeconds = now.startOf("day").toMillis();
+      // Is the item's value less than today?
+      if (toDayAsMilliSeconds > value) {
+        // Update value today
+        updateStamp(id, true);
+      }
     }
-  }, [id, isAutoUpdateMode, updateStamp]);
+  }, [id, value, isAutoUpdateMode, updateStamp]);
 
   return (
     <li
